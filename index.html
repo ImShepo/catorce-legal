@@ -4,120 +4,342 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Política de privacidad — Catorce</title>
+  <meta name="description" content="Política de privacidad de la app Catorce (BryosLabs)." />
+  <meta name="theme-color" content="#0B1220" />
+  <link rel="icon" href="assets/app_icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    :root { color-scheme: light dark; }
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      line-height: 1.55;
-      max-width: 42rem;
-      margin: 0 auto;
-      padding: 2rem 1.25rem 4rem;
+    :root {
+      --blue: #2563eb;
+      --navy: #0b1220;
+      --navy-mid: #152238;
+      --mark-tile: #3468a8;
+      --teal: #2dd4bf;
+      --coral: #ff7a59;
+      --ink: #0b1220;
+      --mist: #f4f7ff;
+      --mist-soft: rgba(244, 247, 255, 0.92);
+      --on-mist: #0b1220;
+      --muted: rgba(11, 18, 32, 0.62);
+      --border: rgba(11, 18, 32, 0.08);
+      --radius-mark: 22%;
+      --radius-card: 1.25rem;
+      --font: "Plus Jakarta Sans", system-ui, sans-serif;
     }
-    h1, h2 { line-height: 1.25; }
-    h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
-    .meta { color: #666; font-size: 0.95rem; margin-bottom: 2rem; }
-    @media (prefers-color-scheme: dark) { .meta { color: #aaa; } }
-    ul { padding-left: 1.25rem; }
-    a { color: inherit; }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font);
+      color: var(--on-mist);
+      background: var(--navy);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .backdrop {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 90% 70% at 50% -5%, #152238 0%, var(--navy) 72%),
+        radial-gradient(circle at 85% 18%, rgba(45, 212, 191, 0.12), transparent 42%),
+        radial-gradient(circle at 12% 78%, rgba(37, 99, 235, 0.18), transparent 45%);
+      padding: 2rem 1.25rem 3.5rem;
+    }
+
+    .shell {
+      width: min(42rem, 100%);
+      margin: 0 auto;
+    }
+
+    header.brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.85rem;
+      margin-bottom: 1.75rem;
+      color: var(--mist);
+    }
+
+    .mark {
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: calc(4.5rem * 0.22);
+      overflow: hidden;
+      background: var(--mark-tile);
+      box-shadow:
+        0 0.55rem 1.4rem rgba(11, 18, 32, 0.45),
+        0 0.2rem 1.1rem rgba(45, 212, 191, 0.28);
+      position: relative;
+    }
+
+    .mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mark::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.28) 0%,
+        rgba(122, 255, 240, 0.12) 35%,
+        transparent 62%
+      );
+      pointer-events: none;
+    }
+
+    .wordmark {
+      margin: 0;
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      line-height: 1.15;
+    }
+
+    .tag {
+      margin: 0;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: rgba(244, 247, 255, 0.72);
+      letter-spacing: 0.01em;
+    }
+
+    .card {
+      background: var(--mist-soft);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(244, 247, 255, 0.55);
+      border-radius: var(--radius-card);
+      padding: 1.75rem 1.35rem 2.25rem;
+      box-shadow:
+        0 1.25rem 2.5rem rgba(11, 18, 32, 0.35),
+        0 0 0 1px rgba(45, 212, 191, 0.08);
+    }
+
+    @media (min-width: 540px) {
+      .card { padding: 2.25rem 2rem 2.75rem; }
+    }
+
+    .doc-title {
+      margin: 0 0 0.35rem;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .meta {
+      margin: 0 0 1.75rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .meta code {
+      font-size: 0.78em;
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--blue);
+      padding: 0.1em 0.35em;
+      border-radius: 0.3em;
+    }
+
+    h2 {
+      margin: 1.85rem 0 0.55rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      display: flex;
+      align-items: baseline;
+      gap: 0.45rem;
+    }
+
+    h2::before {
+      content: "";
+      width: 0.35rem;
+      height: 0.35rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      flex-shrink: 0;
+      transform: translateY(-0.1em);
+    }
+
+    p, li {
+      font-size: 0.9375rem;
+      color: rgba(11, 18, 32, 0.88);
+    }
+
+    p { margin: 0 0 0.75rem; }
+
+    ul {
+      margin: 0 0 0.85rem;
+      padding-left: 1.15rem;
+    }
+
+    li { margin-bottom: 0.4rem; }
+    li strong { color: var(--ink); font-weight: 650; }
+
+    a {
+      color: var(--blue);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+
+    footer.site {
+      margin-top: 1.5rem;
+      text-align: center;
+      color: rgba(244, 247, 255, 0.55);
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    footer.site a {
+      color: rgba(244, 247, 255, 0.78);
+      font-weight: 600;
+    }
+
+    .accent-bar {
+      height: 3px;
+      width: 3.5rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--teal), var(--blue), var(--coral));
+      margin: 0.85rem auto 0;
+    }
   </style>
 </head>
 <body>
-  <h1>Política de privacidad</h1>
-  <p class="meta">Aplicación <strong>Catorce</strong> (paquete <code>com.bryoslabs.catorce</code>)<br />
-  Responsable: BryosLabs<br />
-  Última actualización: 30 de octubre de 2026</p>
+  <div class="backdrop">
+    <div class="shell">
+      <header class="brand">
+        <div class="mark" aria-hidden="true">
+          <img src="assets/app_icon.png" width="72" height="72" alt="" />
+        </div>
+        <div>
+          <p class="wordmark">Catorce</p>
+          <p class="tag">Marketplace local · BryosLabs</p>
+          <div class="accent-bar" aria-hidden="true"></div>
+        </div>
+      </header>
 
-  <h2>1. Quiénes somos</h2>
-  <p>
-    Catorce es una aplicación móvil de marketplace local (compra y venta con entrega)
-    operada por BryosLabs. Esta política describe cómo tratamos los datos personales
-    cuando usas la app en Android y nuestros servicios asociados
-    (incluido el API en <code>api.catorce.app</code>).
-  </p>
-  <p>
-    Contacto de privacidad:
-    <a href="mailto:admin@bryoslabs.com">admin@bryoslabs.com</a>
-  </p>
+      <main class="card">
+        <h1 class="doc-title">Política de privacidad</h1>
+        <p class="meta">
+          Aplicación <strong>Catorce</strong> (paquete <code>com.bryoslabs.catorce</code>)<br />
+          Responsable: BryosLabs<br />
+          Última actualización: 30 de octubre de 2026
+        </p>
 
-  <h2>2. Datos que recopilamos</h2>
-  <p>Según cómo uses la app, podemos tratar:</p>
-  <ul>
-    <li><strong>Datos de cuenta:</strong> correo electrónico, nombre, contraseña (almacenada de forma cifrada/hasheada en el servidor), roles (comprador, vendedor, etc.).</li>
-    <li><strong>Datos de perfil y comercio:</strong> información de tienda, productos, pedidos, direcciones o puntos de entrega que indiques.</li>
-    <li><strong>Ubicación:</strong> ubicación aproximada o precisa del dispositivo (con tu permiso) para mostrar tiendas cercanas, ciudad y seguimiento de entregas.</li>
-    <li><strong>Identificadores del dispositivo:</strong> tokens de notificaciones push (FCM) para avisarte del estado de pedidos y novedades del servicio.</li>
-    <li><strong>Datos de uso técnicos:</strong> registros de errores y diagnóstico necesarios para operar y asegurar el servicio.</li>
-    <li><strong>Pagos:</strong> si usas un proveedor de pagos (p. ej. pasarela), ese proveedor puede tratar datos de pago según su propia política; Catorce no almacena el número completo de tarjeta en nuestros servidores.</li>
-  </ul>
+        <h2>1. Quiénes somos</h2>
+        <p>
+          Catorce es una aplicación móvil de marketplace local (compra y venta con entrega)
+          operada por BryosLabs. Esta política describe cómo tratamos los datos personales
+          cuando usas la app en Android y nuestros servicios asociados
+          (incluido el API en <code>api.catorce.app</code>).
+        </p>
+        <p>
+          Contacto de privacidad:
+          <a href="mailto:admin@bryoslabs.com">admin@bryoslabs.com</a>
+        </p>
 
-  <h2>3. Para qué los usamos</h2>
-  <ul>
-    <li>Crear y gestionar tu cuenta e iniciar sesión.</li>
-    <li>Mostrar catálogo, mapas, carrito, pedidos y seguimiento.</li>
-    <li>Enviar notificaciones relacionadas con el servicio (pedidos, seguridad, cambios importantes).</li>
-    <li>Prevenir fraude, abusos y cumplir obligaciones legales.</li>
-    <li>Mejorar estabilidad y corregir fallos.</li>
-  </ul>
-  <p>No vendemos tus datos personales. No usamos tus datos para publicidad de terceros dentro de la app.</p>
+        <h2>2. Datos que recopilamos</h2>
+        <p>Según cómo uses la app, podemos tratar:</p>
+        <ul>
+          <li><strong>Datos de cuenta:</strong> correo electrónico, nombre, contraseña (almacenada de forma cifrada/hasheada en el servidor), roles (comprador, vendedor, etc.).</li>
+          <li><strong>Datos de perfil y comercio:</strong> información de tienda, productos, pedidos, direcciones o puntos de entrega que indiques.</li>
+          <li><strong>Ubicación:</strong> ubicación aproximada o precisa del dispositivo (con tu permiso) para mostrar tiendas cercanas, ciudad y seguimiento de entregas.</li>
+          <li><strong>Identificadores del dispositivo:</strong> tokens de notificaciones push (FCM) para avisarte del estado de pedidos y novedades del servicio.</li>
+          <li><strong>Datos de uso técnicos:</strong> registros de errores y diagnóstico necesarios para operar y asegurar el servicio.</li>
+          <li><strong>Pagos:</strong> si usas un proveedor de pagos (p. ej. pasarela), ese proveedor puede tratar datos de pago según su propia política; Catorce no almacena el número completo de tarjeta en nuestros servidores.</li>
+        </ul>
 
-  <h2>4. Bases legales (referencia)</h2>
-  <p>
-    Tratamos datos para ejecutar el contrato del servicio (cuenta, pedidos, entrega),
-    con tu consentimiento cuando la ley lo exige (p. ej. permisos de ubicación o notificaciones)
-    y, cuando aplique, por interés legítimo en seguridad y operación del servicio,
-    o para cumplir la ley.
-  </p>
+        <h2>3. Para qué los usamos</h2>
+        <ul>
+          <li>Crear y gestionar tu cuenta e iniciar sesión.</li>
+          <li>Mostrar catálogo, mapas, carrito, pedidos y seguimiento.</li>
+          <li>Enviar notificaciones relacionadas con el servicio (pedidos, seguridad, cambios importantes).</li>
+          <li>Prevenir fraude, abusos y cumplir obligaciones legales.</li>
+          <li>Mejorar estabilidad y corregir fallos.</li>
+        </ul>
+        <p>No vendemos tus datos personales. No usamos tus datos para publicidad de terceros dentro de la app.</p>
 
-  <h2>5. Con quién compartimos datos</h2>
-  <p>Podemos compartir datos solo con:</p>
-  <ul>
-    <li><strong>Proveedores de infraestructura</strong> (alojamiento en la nube, bases de datos) que procesan datos bajo nuestras instrucciones.</li>
-    <li><strong>Firebase / Google</strong> para mensajería push, según la configuración de la app.</li>
-    <li><strong>Mapbox</strong> para mapas y rutas (puede recibir datos técnicos/ubicación necesarios para el mapa).</li>
-    <li><strong>Proveedores de pago</strong>, si inicias un pago a través de ellos.</li>
-    <li><strong>Autoridades</strong>, cuando la ley lo exija.</li>
-  </ul>
-  <p>Otros usuarios (p. ej. vendedores o repartidores) pueden ver la información necesaria para cumplir un pedido (nombre de contacto, dirección/punto de entrega, estado del pedido).</p>
+        <h2>4. Bases legales (referencia)</h2>
+        <p>
+          Tratamos datos para ejecutar el contrato del servicio (cuenta, pedidos, entrega),
+          con tu consentimiento cuando la ley lo exige (p. ej. permisos de ubicación o notificaciones)
+          y, cuando aplique, por interés legítimo en seguridad y operación del servicio,
+          o para cumplir la ley.
+        </p>
 
-  <h2>6. Conservación</h2>
-  <p>
-    Conservamos los datos mientras mantengas la cuenta y el tiempo adicional necesario
-    para pedidos, disputas, seguridad y obligaciones legales. Puedes solicitar eliminación
-    de cuenta escribiendo a <a href="mailto:admin@bryoslabs.com">admin@bryoslabs.com</a>.
-  </p>
+        <h2>5. Con quién compartimos datos</h2>
+        <p>Podemos compartir datos solo con:</p>
+        <ul>
+          <li><strong>Proveedores de infraestructura</strong> (alojamiento en la nube, bases de datos) que procesan datos bajo nuestras instrucciones.</li>
+          <li><strong>Firebase / Google</strong> para mensajería push, según la configuración de la app.</li>
+          <li><strong>Mapbox</strong> para mapas y rutas (puede recibir datos técnicos/ubicación necesarios para el mapa).</li>
+          <li><strong>Proveedores de pago</strong>, si inicias un pago a través de ellos.</li>
+          <li><strong>Autoridades</strong>, cuando la ley lo exija.</li>
+        </ul>
+        <p>Otros usuarios (p. ej. vendedores o repartidores) pueden ver la información necesaria para cumplir un pedido (nombre de contacto, dirección/punto de entrega, estado del pedido).</p>
 
-  <h2>7. Seguridad</h2>
-  <p>
-    Usamos HTTPS/TLS en tránsito, tokens de sesión y prácticas razonables de acceso
-    al servidor. Ningún sistema es 100&nbsp;% seguro; te pedimos proteger tu contraseña.
-  </p>
+        <h2>6. Conservación</h2>
+        <p>
+          Conservamos los datos mientras mantengas la cuenta y el tiempo adicional necesario
+          para pedidos, disputas, seguridad y obligaciones legales. Puedes solicitar eliminación
+          de cuenta escribiendo a <a href="mailto:admin@bryoslabs.com">admin@bryoslabs.com</a>.
+        </p>
 
-  <h2>8. Tus derechos</h2>
-  <p>
-    Según tu jurisdicción, puedes solicitar acceso, corrección, eliminación o limitación
-    del tratamiento, y retirar consentimientos de permisos del sistema (ubicación, notificaciones)
-    desde los ajustes del dispositivo. Escríbenos a
-    <a href="mailto:admin@bryoslabs.com">admin@bryoslabs.com</a>.
-  </p>
+        <h2>7. Seguridad</h2>
+        <p>
+          Usamos HTTPS/TLS en tránsito, tokens de sesión y prácticas razonables de acceso
+          al servidor. Ningún sistema es 100&nbsp;% seguro; te pedimos proteger tu contraseña.
+        </p>
 
-  <h2>9. Menores</h2>
-  <p>
-    Catorce no está dirigida a menores de 13 años. Si eres padre/tutor y crees que un menor
-    nos facilitó datos, contáctanos para eliminarlos.
-  </p>
+        <h2>8. Tus derechos</h2>
+        <p>
+          Según tu jurisdicción, puedes solicitar acceso, corrección, eliminación o limitación
+          del tratamiento, y retirar consentimientos de permisos del sistema (ubicación, notificaciones)
+          desde los ajustes del dispositivo. Escríbenos a
+          <a href="mailto:admin@bryoslabs.com">admin@bryoslabs.com</a>.
+        </p>
 
-  <h2>10. Cambios</h2>
-  <p>
-    Podemos actualizar esta política. Publicaremos la versión vigente en esta página
-    con la fecha de “Última actualización”.
-  </p>
+        <h2>9. Menores</h2>
+        <p>
+          Catorce no está dirigida a menores de 13 años. Si eres padre/tutor y crees que un menor
+          nos facilitó datos, contáctanos para eliminarlos.
+        </p>
 
-  <h2>11. Contacto</h2>
-  <p>
-    BryosLabs — Catorce<br />
-    Web: <a href="https://catorce.app">https://catorce.app</a><br />
-    API: <a href="https://api.catorce.app">https://api.catorce.app</a><br />
-    Email: <a href="mailto:admin@bryoslabs.com">admin@bryoslabs.com</a>
-  </p>
+        <h2>10. Cambios</h2>
+        <p>
+          Podemos actualizar esta política. Publicaremos la versión vigente en esta página
+          con la fecha de “Última actualización”.
+        </p>
+
+        <h2>11. Contacto</h2>
+        <p>
+          BryosLabs — Catorce<br />
+          Web: <a href="https://catorce.app">https://catorce.app</a><br />
+          API: <a href="https://api.catorce.app">https://api.catorce.app</a><br />
+          Email: <a href="mailto:admin@bryoslabs.com">admin@bryoslabs.com</a>
+        </p>
+      </main>
+
+      <footer class="site">
+        <a href="https://catorce.app">catorce.app</a>
+        · Política de privacidad
+      </footer>
+    </div>
+  </div>
 </body>
 </html>
