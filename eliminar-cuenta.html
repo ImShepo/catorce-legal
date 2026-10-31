@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eliminar cuenta — Catorce</title>
+  <meta name="description" content="Solicita la eliminación de tu cuenta y datos personales en Catorce (BryosLabs)." />
+  <meta name="theme-color" content="#0B1220" />
+  <link rel="icon" href="assets/app_icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blue: #2563eb;
+      --navy: #0b1220;
+      --mark-tile: #3468a8;
+      --teal: #2dd4bf;
+      --coral: #ff7a59;
+      --ink: #0b1220;
+      --mist: #f4f7ff;
+      --muted: rgba(11, 18, 32, 0.62);
+      --font: "Plus Jakarta Sans", system-ui, sans-serif;
+      --pad: clamp(1rem, 3.5vw, 2.5rem);
+      --pad-block: clamp(1.25rem, 3vw, 2rem);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--navy);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      background:
+        radial-gradient(ellipse 100% 55% at 50% -8%, #152238 0%, transparent 70%),
+        radial-gradient(circle at 92% 12%, rgba(45, 212, 191, 0.14), transparent 38%),
+        radial-gradient(circle at 6% 88%, rgba(37, 99, 235, 0.2), transparent 42%),
+        var(--navy);
+    }
+    header.brand {
+      display: flex;
+      align-items: center;
+      gap: clamp(0.75rem, 2vw, 1.1rem);
+      padding: var(--pad-block) var(--pad);
+      color: var(--mist);
+      border-bottom: 1px solid rgba(244, 247, 255, 0.08);
+    }
+    header.brand a.home {
+      display: flex;
+      align-items: center;
+      gap: inherit;
+      color: inherit;
+      text-decoration: none;
+    }
+    .mark {
+      width: clamp(2.75rem, 8vw, 3.5rem);
+      height: clamp(2.75rem, 8vw, 3.5rem);
+      border-radius: 22%;
+      overflow: hidden;
+      background: var(--mark-tile);
+      flex-shrink: 0;
+    }
+    .mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .wordmark {
+      margin: 0;
+      font-size: clamp(1.2rem, 3.5vw, 1.55rem);
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      background: linear-gradient(90deg, var(--teal), var(--blue), var(--coral));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+    .tag { margin: 0.15rem 0 0; font-size: 0.8125rem; color: rgba(244, 247, 255, 0.7); }
+    .accent-bar {
+      height: 3px; width: 2.75rem; border-radius: 999px; margin-top: 0.45rem;
+      background: linear-gradient(90deg, var(--teal), var(--blue), var(--coral));
+    }
+    main.panel {
+      flex: 1;
+      background: var(--mist);
+      border-radius: clamp(1rem, 2.5vw, 1.5rem) clamp(1rem, 2.5vw, 1.5rem) 0 0;
+      box-shadow: 0 -0.75rem 2rem rgba(11, 18, 32, 0.28);
+    }
+    .panel-inner {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: clamp(1.5rem, 4vw, 2.75rem) var(--pad) clamp(2.5rem, 5vw, 4rem);
+    }
+    .doc-title {
+      margin: 0 0 0.4rem;
+      font-size: clamp(1.5rem, 4.5vw, 2.15rem);
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 1.15;
+    }
+    .meta { margin: 0 0 1.25rem; color: var(--muted); font-size: 0.9rem; }
+    h2 {
+      margin: 1.5rem 0 0.55rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    p, li { font-size: 1rem; color: rgba(11, 18, 32, 0.88); }
+    p { margin: 0 0 0.8rem; }
+    ul { margin: 0 0 1rem; padding-left: 1.2rem; }
+    li { margin-bottom: 0.4rem; }
+    a { color: var(--blue); font-weight: 600; text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+    .card {
+      margin: 1.25rem 0;
+      padding: 1.15rem 1.2rem;
+      border-radius: 1rem;
+      background: #fff;
+      border: 1px solid rgba(11, 18, 32, 0.08);
+      box-shadow: 0 0.35rem 1rem rgba(11, 18, 32, 0.06);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+      padding: 0.85rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none !important;
+      background: linear-gradient(120deg, var(--teal), var(--blue));
+      color: #fff !important;
+      box-shadow: 0 0.4rem 1rem rgba(37, 99, 235, 0.28);
+    }
+    .btn:hover { filter: brightness(1.05); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--blue) !important;
+      border: 1px solid rgba(37, 99, 235, 0.35);
+      box-shadow: none;
+      margin-left: 0.5rem;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.5rem; }
+    footer.site {
+      padding: 0.85rem var(--pad) calc(0.85rem + env(safe-area-inset-bottom, 0));
+      text-align: center;
+      background: var(--mist);
+      color: var(--muted);
+      font-size: 0.75rem;
+      border-top: 1px solid rgba(11, 18, 32, 0.06);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="brand">
+      <a class="home" href="https://catorce.app">
+        <div class="mark" aria-hidden="true">
+          <img src="assets/app_icon.png" width="56" height="56" alt="" />
+        </div>
+        <div>
+          <p class="wordmark">Catorce</p>
+          <p class="tag">Eliminación de cuenta</p>
+          <div class="accent-bar" aria-hidden="true"></div>
+        </div>
+      </a>
+    </header>
+
+    <main class="panel">
+      <div class="panel-inner">
+        <h1 class="doc-title">Solicitar eliminación de cuenta</h1>
+        <p class="meta">
+          App <strong>Catorce</strong> (<code>com.bryoslabs.catorce</code>) · BryosLabs
+        </p>
+
+        <p>
+          Si quieres que eliminemos tu cuenta de Catorce y los datos personales asociados,
+          envíanos una solicitud. Procesamos los pedidos en un plazo razonable
+          (normalmente en un máximo de <strong>30 días</strong>), salvo datos que debamos
+          conservar por obligación legal o disputas de pedidos.
+        </p>
+
+        <div class="card">
+          <h2 style="margin-top:0">Cómo solicitarlo</h2>
+          <ol style="padding-left:1.2rem;margin:0 0 0.75rem">
+            <li>Usa el botón de abajo (abre tu correo) o escribe a
+              <a href="mailto:admin@bryoslabs.com">admin@bryoslabs.com</a>.</li>
+            <li>Indica el <strong>correo</strong> con el que te registraste en Catorce
+              (email/contraseña o Google).</li>
+            <li>Asunto sugerido: <em>Solicitud de eliminación de cuenta Catorce</em>.</li>
+          </ol>
+          <div class="actions">
+            <a
+              class="btn"
+              href="mailto:admin@bryoslabs.com?subject=Solicitud%20de%20eliminaci%C3%B3n%20de%20cuenta%20Catorce&body=Hola%20BryosLabs%2C%0A%0ASolicito%20la%20eliminaci%C3%B3n%20de%20mi%20cuenta%20en%20Catorce%20y%20de%20los%20datos%20personales%20asociados.%0A%0ACorreo%20de%20la%20cuenta%3A%20%0A%0AGracias."
+            >Enviar solicitud por correo</a>
+            <a class="btn btn-ghost" href="./">Ver política de privacidad</a>
+          </div>
+        </div>
+
+        <h2>Qué eliminamos</h2>
+        <ul>
+          <li>Cuenta de acceso (email, nombre, vínculo con Google si aplica).</li>
+          <li>Datos de perfil y preferencias asociadas a esa cuenta.</li>
+          <li>Tokens de notificaciones push vinculados al dispositivo/cuenta.</li>
+        </ul>
+
+        <h2>Qué podemos conservar un tiempo</h2>
+        <ul>
+          <li>Registros de pedidos o facturación necesarios por ley o para resolver disputas.</li>
+          <li>Datos agregados o anonimizados que ya no te identifican.</li>
+        </ul>
+
+        <p>
+          Más detalle en la
+          <a href="./">política de privacidad</a>.
+          Si también usas Google para iniciar sesión, puedes revisar los permisos de la app
+          en tu
+          <a href="https://myaccount.google.com/permissions" rel="noopener" target="_blank">cuenta de Google</a>.
+        </p>
+      </div>
+    </main>
+
+    <footer class="site">
+      <a href="https://catorce.app">catorce.app</a>
+      ·
+      <a href="./">Privacidad</a>
+      ·
+      Eliminar cuenta
+    </footer>
+  </div>
+</body>
+</html>

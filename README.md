@@ -1,5 +1,8 @@
 # Catorce — documentos legales
 
-Política de privacidad alineada con la identidad visual de la app (palette navy / teal / mist + mark).
+Política de privacidad y solicitud de eliminación de cuenta (identidad Catorce).
 
-**URL:** https://imshepo.github.io/catorce-legal/
+| Página | URL |
+|--------|-----|
+| Privacidad | https://imshepo.github.io/catorce-legal/ |
+| Eliminar cuenta (Play Data Safety) | https://imshepo.github.io/catorce-legal/eliminar-cuenta.html |
